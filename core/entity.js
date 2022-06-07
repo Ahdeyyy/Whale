@@ -5,13 +5,24 @@ class Entity{
     }
 
     update(){
-        this.position.add(new vec2({
-            x: 0.1, y:0.2
-        }));
+        
     }
 
-    draw(){
+    get_screen_positon(camera){
+        return new vec2({
+            x:  this.position.x - camera.position.x,
+            y:  this.position.y - camera.position.y
+        })
+    }
+
+    draw(cam = new camera({
+        position:new vec2({
+            x:0,
+            y:0
+        })
+    })){
+        let offset = this.get_screen_positon(cam)
         ctx.fillStyle = "red";
-        ctx.fillRect(this.position.x,this.position.y,50,50);
+        ctx.fillRect(offset.x,offset.y,50,50);
     }
 }

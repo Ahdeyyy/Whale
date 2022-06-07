@@ -35,20 +35,21 @@ class vec2{
     /*
         static members
     */
-        static add(vec1 , vec2){
+        static add(vec1 , vec){
             return new vec2(
                 {
-                    x: vec1.x + vec2.x,
-                    y: vec1.y + vec2.y
+                    x: vec1.x + vec.x,
+                    y: vec1.y + vec.y
                 }
             )
+            
         }
     
-        static subtract(vec1 , vec2){
+        static subtract(vec1 , vec){
             return new vec2(
                 {
-                    x: vec1.x - vec2.x,
-                    y: vec1.y - vec2.y
+                    x: vec1.x - vec.x,
+                    y: vec1.y - vec.y
                 }
             )
         }
@@ -57,7 +58,7 @@ class vec2{
             return vec1.x * vec2.x  + vec1.y * vec2.y;
         }
     
-        static multiply(vec){
+        static multiply(vec1,vec2){
             return new vec2(
                 {
                     x: vec1.x * vec2.x,
