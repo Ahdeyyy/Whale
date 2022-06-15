@@ -1,13 +1,18 @@
 class camera {
   constructor({ position }) {
     this.position = position;
-    }
-  
+  }
+
   follow(entity) {
-    let velocity = new vec2({
-      x: (entity.position.x - this.position.x) / 2,
-      y: (entity.position.y - this.position.y) / 2,
+    let dir = new vec2({
+      x: ( this.position.x - entity.position.x),
+      y: ( this.position.y - entity.position.y ),
     });
-    this.position = vec2.add(this.position, vec2.scale(velocity, 0.025));
+    dir.normalize();
+    console.log(vec2.subtract(entity.position, this.position).length());
+    if(vec2.subtract(entity.position, this.position).length() > 100){
+      this.position.add(vec2.scale(dir,entity.velocity.length() * 2));
+    }
+    //console.log(this.position);
   }
 }

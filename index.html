@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
-    <link rel="manifest" href="icon/site.webmanifest">
+    <!-- <link rel="manifest" href="icon/site.webmanifest"> -->
     <title>Whale</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,9 +30,24 @@
         </div>
         <!-- components panel -->
         <div class="components">
+            <div class="entity-type">
+                <label for="entiy-selector">Type</label>
+                <select name="entity-type" id="entity-type">
+                    <option value="None" selected>None</option>
+                    <option value="Entity">Entity</option>
+                    <option value="Agent">Agent</option>
+                </select>
+            </div>
             <div class="color-picker">
+                <label for="color-picker">Color :</label>
                 <input type="color" name="entity-color" id="color-picker">
-                <button onclick="loadColor()">Enter</button>
+                <button onclick="loadColor()">Apply color</button>
+            </div>
+
+            <div class="acceleration-control">
+                <label for="acceleration-x">Force :</label>
+                <input type="number" id="force" class="acc-input" value="0">
+                <button onclick="applyForce()">Apply Force</button>
             </div>
         </div>
     </div>
@@ -52,6 +67,17 @@
             <div class="items">
                 <li>
                     D - Deserialize
+                </li>
+            </div>
+
+            <div class="items">
+                <li>
+                    W - Rotate Agent Anti-clockwise
+                </li>
+            </div>
+            <div class="items">
+                <li>
+                    Q - Rotate Agent Clockwise
                 </li>
             </div>
         </ul>
@@ -82,11 +108,16 @@
     <script src="libs/vec2.js"></script>
     <script src="core/camera.js"></script>
     <script src="core/entity.js"></script>
+    <script src="core/agent.js"></script>
     <script src="core/entity_list.js"></script>
     <script src="core/game.js"></script>
     <script src="main.js"></script>
-    <script src="core/input.js"></script>
+    <script src="libs/utils.js"></script>
     <script src="core/ui.js"></script>
+    <script src="core/input.js"></script>
+    
+    
+    
 
 </body>
 

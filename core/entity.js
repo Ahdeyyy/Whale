@@ -1,8 +1,11 @@
 class Entity{
-    constructor({position}){
+    constructor({position,color = "#ffffff"
+    }){
         this.position = position;
         this.uId ;
-        this.color;
+        this.color = color;
+        this.size = 50;
+
     }
 
     update(){
@@ -25,17 +28,7 @@ class Entity{
      game){
         let offset = this.get_screen_positon(cam)
         game.ctx.fillStyle = this.color;
-        game.ctx.fillRect(offset.x,offset.y,50,50);
+        game.ctx.fillRect(offset.x,offset.y,this.size,this.size);
     }
 
-    static serialize(obj){
-        localStorage.setItem(obj.uId, JSON.stringify(obj));
-    }
-
-    static deserialize(uId){
-        let obj = JSON.parse(localStorage.getItem(uId));
-        return new Entity({
-            position: obj.position
-        })
-    }
 }

@@ -3,13 +3,14 @@
 }
 
 body{
-    background-color:slategray;
+    background-color:rgba(8, 8, 8, 0.897);
 }
 
 .container{
     display: flex;
-    width: 95%;
+    width: 99%;
     margin-top: 1em;
+    margin: auto;
     gap: 0.5em;
 }
 .window{
@@ -41,6 +42,7 @@ ul{
     align-items: center;
     border-radius: 5px;
     box-shadow: 5px 5px black;
+    cursor: context-menu;
     /* border: 2px solid lightseagreen; */
 }
 

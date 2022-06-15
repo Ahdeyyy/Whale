@@ -1,9 +1,34 @@
 .components{
-    width: 100%;
+    width: 40em;
 }
 .color-picker{
     display: flex;
-    background-color: white;
+    background-color: whitesmoke;
     width: 100%;
     justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5em;
+}
+.acceleration-control{
+    display: flex;
+    border-style: none;
+    background-color: whitesmoke;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 0.5em;
+}
+.entity-type{
+    display: flex;
+    border-style: none;
+    background-color: whitesmoke;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 0.5em;
+}
+label{
+    margin-left: 1em;
+    
+}
+.acc-input{
+    width: 3em;
 }
