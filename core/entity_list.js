@@ -24,6 +24,7 @@ class Entity_list {
           x: 0,
           y: 0,
         });
+        agent.angularAcceleration = 0;
       }
     }
   }

@@ -20,3 +20,13 @@ function applyForce() {
     agent.acceleration.add(acc);
   }
 }
+
+function applyAngularForce() {
+  let force = document.querySelector("#angular-force");
+  for (let agent of game.mObjects.entities.filter(
+    (agent) => agent.type === "agent"
+  )) {
+   
+    agent.angularAcceleration += Number(force.value) * (Math.PI / 10) ;
+  }
+}

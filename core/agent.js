@@ -15,18 +15,30 @@ class agent extends Entity {
     this.size = 20;
     this.acceleration = acceleration;
     this.velocity = velocity;
+    this.angularAcceleration = 0;
+    this.angularVelocity = 0;
     this.type = "agent";
+    this.maxAcceleration = 10;
+    this.maxVelocity = 10;
+    this.maxAngularAcceleration = 0.314;
+    this.maxAngularVelocity = 0.314;
   }
 
   update() {
 
     let SPF = 1/60; // seconds per frame
 
-    this.acceleration.add(vec2.scale(this.acceleration,SPF));
+    //this.acceleration.add(vec2.scale(this.acceleration,SPF));
     this.velocity.add(this.acceleration);
     let v = vec2.scale(this.velocity,SPF);
     this.position.add(v);
     this.velocity.subtract(v);
+
+    this.angularVelocity += this.angularAcceleration;
+    let aV = this.angularVelocity * SPF;
+    this.angle += aV;
+    this.angularVelocity -= aV;
+
     if(this.angle < -2*Math.PI){
       this.angle += 2*Math.PI;
     }else if(this.angle > 2*Math.PI){
